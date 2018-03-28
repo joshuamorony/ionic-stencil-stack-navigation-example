@@ -72,7 +72,7 @@ export class AppProfile {
         <ion-header>
           <ion-toolbar color='primary'>
             <ion-buttons slot="start">
-              <ion-back-button defaultHref='/'></ion-back-button>
+              <ion-back-button text="Home"></ion-back-button>
             </ion-buttons>
 
             <ion-title>Ionic PWA Toolkit</ion-title>
@@ -80,15 +80,13 @@ export class AppProfile {
         </ion-header>
 
         <ion-content>
-          <p>
-            Hello! My name is {this.name}.
-            My name was passed in through a route param!
-            </p>
 
-          {this.swSupport ? <ion-item>
-            <ion-label>Notifications</ion-label>
-            <ion-toggle checked={this.notify} disabled={this.notify}></ion-toggle>
-          </ion-item> : null}
+            <ion-nav-pop>
+              <ion-button>Pop</ion-button>
+            </ion-nav-pop>
+
+            <p>Pop will only work if this page was pushed, not if it was set as the new root component</p>
+
         </ion-content>
       </ion-page>
     );

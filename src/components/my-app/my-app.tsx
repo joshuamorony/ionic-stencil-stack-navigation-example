@@ -12,6 +12,7 @@ export class MyApp {
   @Prop({ connect: 'ion-toast-controller' }) toastCtrl: ToastController;
 
   componentDidLoad() {
+
     /*
       Handle service worker updates correctly.
       This code will show a toast letting the
@@ -40,14 +41,7 @@ export class MyApp {
   render() {
     return (
       <ion-app>
-        <main>
-          <ion-router useHash={false}>
-            <ion-route url='/' component='app-home'></ion-route>
-            <ion-route url='/profile/:name' component='app-profile'></ion-route>
-
-            <ion-nav></ion-nav>
-          </ion-router>
-        </main>
+        <ion-nav root="app-home"></ion-nav>
       </ion-app>
     );
   }

@@ -1,11 +1,16 @@
 import { Component } from '@stencil/core';
 
+const nav = document.querySelector('ion-nav');
 
 @Component({
   tag: 'app-home',
   styleUrl: 'app-home.scss'
 })
 export class AppHome {
+
+  goToProfile(){
+    nav.push('app-profile');
+  }
 
   render() {
     return (
@@ -24,9 +29,16 @@ export class AppHome {
             Check out our docs on <a href='https://stenciljs.com'>stenciljs.com</a> to get started.
           </p>
 
-          <ion-button href={'/profile/stencil'}>
-            Profile page
-          </ion-button>
+          <ion-nav-push component="app-profile">
+            <ion-button>Push Profile Page</ion-button>
+          </ion-nav-push>
+
+          <ion-nav-set-root component="app-profile">
+            <ion-button>Make Profile Page Root Component</ion-button>
+          </ion-nav-set-root>
+
+          <ion-button onClick={() => this.goToProfile()}>Push Profile Page with Function</ion-button>
+
         </ion-content>
       </ion-page>
     );
